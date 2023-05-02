@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\Foods;
 
+use Inertia\Inertia;
 use App\Models\Foods\Food;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class FoodController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): \Inertia\Response
     {
-        //
+        return Inertia::render('Foods/index');
     }
 
     /**

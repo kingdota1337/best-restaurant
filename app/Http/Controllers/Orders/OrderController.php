@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\Orders;
 
+use Inertia\Inertia;
 use App\Models\Orders\Order;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): \Inertia\Response
     {
-        //
+        return Inertia::render('Orders/index');
     }
 
     /**

@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\Supplies;
 
-use App\Models\Supplies\Supply;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
+use App\Models\Supplies\Supply;
+use App\Http\Controllers\Controller;
 
 class SupplyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): \Inertia\Response
     {
-        //
+        return Inertia::render('Supplies/index');
     }
 
     /**
