@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers\Supplies;
 
-use Inertia\Inertia;
+
 use Illuminate\Http\Request;
 use App\Models\Supplies\Supply;
 use App\Http\Controllers\Controller;
+use App\Services\Supplies\SupplyService as Service;
 
 class SupplyController extends Controller
 {
+    protected $service;
+
+    public function __construct(Service $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index(): \Inertia\Response
     {
-        return Inertia::render('Supplies/index');
+        return $this->service->index();
     }
 
     /**

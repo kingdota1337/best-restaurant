@@ -6,15 +6,23 @@ use Inertia\Inertia;
 use App\Models\Orders\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Service\Orders\OrderService as Service;
 
 class OrderController extends Controller
 {
+    protected $service;
+
+    public function __construct(Service $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index(): \Inertia\Response
     {
-        return Inertia::render('Orders/index');
+        return $this->service->index();
     }
 
     /**

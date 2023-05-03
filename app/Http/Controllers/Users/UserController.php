@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers\Users;
 
-use Inertia\Inertia;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\Users\UserService as Service;
+
 
 class UserController extends Controller
 {
+    protected $service;
+
+    public function __construct(Service $service)
+    {
+        $this->service = $service;
+    }
+
     public function index(): \Inertia\Response
     {
-        return Inertia::render('Users/index');
+        return $this->service->index();
     }
 }
