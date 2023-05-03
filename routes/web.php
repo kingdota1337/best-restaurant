@@ -1,9 +1,13 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Foods\FoodController;
+use App\Http\Controllers\Users\UserController;
+use App\Http\Controllers\Orders\OrderController;
+use App\Http\Controllers\Supplies\SupplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +32,23 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// users
+Route::resource('users', UserController::class);
+Route::controller(UserController::class)->group(function () {
+    // Route::get('/users/{id}', 'show');
+    // Route::post('/orders', 'store');
+});
+
+// orders
+Route::resource('orders', OrderController::class);
+
+// foods
+Route::resource('foods', FoodController::class);
+
+// supplies
+Route::resource('supplies', SupplyController::class);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
