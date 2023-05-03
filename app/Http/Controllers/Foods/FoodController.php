@@ -6,7 +6,7 @@ use Inertia\Inertia;
 use App\Models\Foods\Food;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Service\Foods\FoodService as Service;
+use App\Services\Foods\FoodService as Service;
 
 class FoodController extends Controller
 {

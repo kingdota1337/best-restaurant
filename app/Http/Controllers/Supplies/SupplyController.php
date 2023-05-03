@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Supplies;
 
-
 use Illuminate\Http\Request;
 use App\Models\Supplies\Supply;
 use App\Http\Controllers\Controller;

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Service\Foods;
+namespace App\Services\Foods;
 
 use Inertia\Inertia;
+use App\Models\Foods\Food;
 
 class FoodService
 {
@@ -11,6 +12,10 @@ class FoodService
     */
     public function index(): \Inertia\Response
     {
-        return Inertia::render('Foods/index');
+        $foods = Food::all();
+        
+        return Inertia::render('Foods/index', [
+            'items' => $foods,
+        ]);
     }
 }

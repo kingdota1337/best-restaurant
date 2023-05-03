@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Orders;
 
-use Inertia\Inertia;
 use App\Models\Orders\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Service\Orders\OrderService as Service;
+use App\Services\Orders\OrderService as Service;
 
 class OrderController extends Controller
 {

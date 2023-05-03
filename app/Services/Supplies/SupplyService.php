@@ -3,6 +3,7 @@
 namespace App\Services\Supplies;
 
 use Inertia\Inertia;
+use App\Models\Supplies\Supply;
 
 class SupplyService
 {
@@ -11,6 +12,10 @@ class SupplyService
      */
     public function index(): \Inertia\Response
     {
-        return Inertia::render('Supplies/index');
+        $supplies = Supply::all();
+
+        return Inertia::render('Supplies/index', [
+           'items' => $supplies
+        ]);
     }
 }

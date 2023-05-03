@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Service\Orders;
+namespace App\Services\Orders;
 
 use Inertia\Inertia;
+use App\Models\Orders\Order;
 
 class OrderService
 {
@@ -11,6 +12,10 @@ class OrderService
      */
     public function index(): \Inertia\Response
     {
-        return Inertia::render('Orders/index');
+        $orders = Order::all();
+        
+        return Inertia::render('Orders/index', [
+            'items' => $orders
+         ]);
     }
 }
