@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Response;
+
 abstract class BaseController extends Controller
 {
     protected $service;
@@ -17,5 +19,13 @@ abstract class BaseController extends Controller
     public function index(): \Inertia\Response
     {
         return $this->service->index();
+    }
+
+   /**
+     * Show the form for creating a new resource.
+     */
+    public function create(): Response
+    {
+        return $this->service->create();
     }
 }

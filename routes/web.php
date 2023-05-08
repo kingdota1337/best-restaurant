@@ -45,6 +45,9 @@ Route::resource('orders', OrderController::class);
 
 // Products
 Route::resource('products', ProductController::class);
+Route::controller(ProductController::class)->group(function () {
+    Route::post('/products/predict-subtype', 'predictSubtype')->name('products.predict-subtype');
+});
 
 // Supplies
 Route::resource('supplies', SupplyController::class);

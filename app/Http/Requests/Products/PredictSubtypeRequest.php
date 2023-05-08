@@ -4,7 +4,7 @@ namespace App\Http\Requests\Products;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class PredictSubtypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,9 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'type_id' => 'required|integer|exists:types,id',
-            'sub_type_id' => 'required|integer|exists:types,id',
             'sugar' => 'required|numeric',
             'calories' => 'required|numeric',
             'color' => 'required|array|size:4',
-            'multiplicity' => 'required|integer',
             'gasification' => 'required|numeric',
         ];
     }

@@ -30,7 +30,11 @@ class BaseService
 
     public function create()
     {
-        return Inertia::render($this->path.'/create');
+        $data = $this->getData();
+
+        return Inertia::render($this->path.'/create',[
+            'data' => $data
+        ]);
     }
 
     public function store(array $request): RedirectResponse
@@ -42,8 +46,11 @@ class BaseService
 
     public function edit(Model $model): Response
     {
+        $data = $this->getData();
+
         return Inertia::render($this->path.'/edit', [
-            'model' => $model
+            'model' => $model,
+            'data' => $data
         ]);
     }
 
@@ -59,5 +66,10 @@ class BaseService
         $model->delete();
 
         return response()->json(['success' => true]);
+    }
+
+    protected function getData(): array
+    {
+        return [];
     }
 }

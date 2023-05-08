@@ -2,7 +2,7 @@
   <v-col>
     <v-btn
       color="primary"
-      :href="route('users.create')"
+      :href="route('supplies.create')"
     >
       Create
     </v-btn>    
@@ -14,7 +14,7 @@
             Id
           </th>
           <th class="text-left">
-            Email
+            number
           </th>
           <th class="text-left">
             Actions
@@ -24,10 +24,10 @@
       <tbody>
         <tr
           v-for="item in items"
-          :key="item.name"
+          :key="item.id"
         >
           <td>{{ item.id }}</td>
-          <td>{{ item.email }}</td>
+          <td>{{ item.number }}</td>
           <td>
             <v-btn class="mr-1" color="yellow" :href="route('supplies.edit', item.id)">Edit</v-btn>
             

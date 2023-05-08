@@ -14,7 +14,7 @@
             Id
           </th>
           <th class="text-left">
-            Name
+            Number
           </th>
           <th class="text-left">
             Actions
@@ -24,10 +24,10 @@
       <tbody>
         <tr
           v-for="item in items"
-          :key="item.name"
+          :key="item.id"
         >
           <td>{{ item.id }}</td>
-          <td>{{ item.name }}</td>
+          <td>{{ item.number }}</td>
           <td>
             <v-btn class="mr-1" color="yellow" :href="route('orders.edit', item.id)">Edit</v-btn>
             

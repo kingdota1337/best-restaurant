@@ -22,14 +22,6 @@ class UserController extends BaseController
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create(): Response
-    {
-        return $this->service->create();
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(StoreRequest $request): RedirectResponse

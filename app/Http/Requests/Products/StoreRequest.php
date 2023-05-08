@@ -22,7 +22,14 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'type_id' => 'required|integer|exists:types,id',
+            'sub_type_id' => 'required|integer|exists:types,id',
+            'sugar' => 'required|numeric',
+            'calories' => 'required|numeric',
+            'color' => 'required|array|size:4',
+            'multiplicity' => 'required|integer',
+            'gasification' => 'required|numeric',
         ];
     }
 }

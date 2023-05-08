@@ -1,66 +1,23 @@
 <template>
 	<form @submit.prevent="submit">
 		<div>
-			<v-text-field
-				class="mt-1 block w-full"
-				label="Name"
-				v-model="form.name"
-				autofocus
-				variant="solo"
-				autocomplete="name"
-				:error-messages="form.errors.name"
-			/>
-		</div>
-
-		<div class="mt-4">
-			<v-text-field
-				class="mt-1 block w-full"
-				label="First Name"
-				v-model="form.first_name"
-				variant="solo"
-				:error-messages="form.errors.first_name"
-			/>
-		</div>
-
-		<div class="mt-4">
-			<v-text-field
-				class="mt-1 block w-full"
-				label="Surname"
-				v-model="form.surname"
-				variant="solo"
-				:error-messages="form.errors.surname"
-			/>
-		</div>
-
-		<div class="mt-4">
 			<text-field
 				class="mt-1 block w-full"
-				label="Email"
-				v-model="form.email"
-				:error-messages="form.errors.email"
+				label="Number"
+				v-model="form.number"
+				:error-messages="form.errors.number"
 			/>
 		</div>
 
-		<div class="mt-4">
-			<text-field
-				id="password"
-				type="password"
+		<div>
+			<autocomplete
 				class="mt-1 block w-full"
-				label="Password"
-				v-model="form.password"
-				:error-messages="form.errors.password"
-			/>    
-		</div>
-
-		<div class="mt-4">
-			<text-field
-				id="password_confirmation"
-				type="password"
-				class="mt-1 block w-full"
-				label="Password Confirmation"
-				v-model="form.password_confirmation"
-				:error-messages="form.errors.password_confirmation"
-			/> 
+				label="Products"
+				v-model="form.products"
+				:items="selectsData.products"
+				:error-messages="form.errors.products"
+				multiple
+			/>
 		</div>
 
 		<div class="flex items-center justify-end mt-4">
@@ -78,31 +35,27 @@ export default {
 	data () {
 		return {
 			form: useForm({
-					name: '',
-					first_name: '',
-					surname: '',
-					email: '',
-					password: '',
-					password_confirmation: '',
-			})
+					number: null,
+					products:[]
+			}),
+			selectsData: {
+				products:[],
+			}
 		}
 	},
 	created() {
 		if(this.$page['props']['model'])
 		{
-			this.form.name = this.$page['props']['model']['name']
-			this.form.first_name = this.$page['props']['model']['first_name']
-			this.form.surname = this.$page['props']['model']['surname']
-			this.form.email = this.$page['props']['model']['email']
-			this.form.password = this.$page['props']['model']['password']
-			this.form.password_confirmation = this.$page['props']['model']['password_confirmation']
+			this.form.number = this.$page['props']['model']['data']['number']
+			this.form.products = this.$page['props']['model']['data']['products']
 		}
-		
+
+		this.selectsData.products = this.$page['props']['data']['products']
 	},
 	methods: {
 		submit() {
 			if(this.$page['props']['model']) {
-				this.form.put(route('orders.update', route().params.user), {})	
+				this.form.put(route('orders.update', route().params.order), {})	
 			} else {
 				this.form.post(route('orders.store'), {})	
 			}

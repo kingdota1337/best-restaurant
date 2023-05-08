@@ -20,14 +20,6 @@ class SupplyController extends BaseController
         parent::__construct($service);
     }
 
-   /**
-     * Show the form for creating a new resource.
-     */
-    public function create(): Response
-    {
-        return $this->service->create();
-    }
-
     /**
      * Store a newly created resource in storage.
      */

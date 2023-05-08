@@ -14,5 +14,8 @@
 </script>
 
 <template>
-	<create-page/>    
+	<div class="mr-2 ml-2">
+    <v-card-title>Product Edit</v-card-title>
+    <create-page/>      
+  </div>
 </template>

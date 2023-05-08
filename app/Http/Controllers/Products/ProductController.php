@@ -7,6 +7,7 @@ use App\Models\Products\Product;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\BaseController;
+use App\Http\Requests\Products\PredictSubtypeRequest;
 use App\Http\Requests\Products\StoreRequest;
 use App\Http\Requests\Products\UpdateRequest;
 use App\Services\Products\ProductService as Service;
@@ -18,14 +19,6 @@ class ProductController extends BaseController
     public function __construct(Service $service)
     {
         parent::__construct($service);
-    }
-
-   /**
-     * Show the form for creating a new resource.
-     */
-    public function create(): Response
-    {
-        return $this->service->create();
     }
 
     /**
@@ -58,5 +51,10 @@ class ProductController extends BaseController
     public function destroy(Product $product): JsonResponse
     {
         return $this->service->destroy($product);
+    }
+
+    public function predictSubtype(PredictSubtypeRequest $request)
+    {
+        return $this->service->predictSubtype($request->validated());
     }
 }

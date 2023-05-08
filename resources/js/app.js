@@ -16,6 +16,7 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi'
 // Global components
 import TextField from '@/components/TextField.vue'
 import PrimaryButton from '@/components/PrimaryButton.vue'
+import Autocomplete from '@/components/Autocomplete.vue'
 
 const vuetify = createVuetify({
     icons: {
@@ -31,6 +32,8 @@ const vuetify = createVuetify({
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
+const globalComponents = { TextField, PrimaryButton, Autocomplete }
+
 const app = createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
@@ -39,7 +42,7 @@ const app = createInertiaApp({
             .use(vuetify)
             .use(plugin)
             .use(ZiggyVue, Ziggy)
-            .mixin({ components: { TextField, PrimaryButton } }) // register global components
+            .mixin({ components: globalComponents }) // register global components
             .mount(el);
     },
 

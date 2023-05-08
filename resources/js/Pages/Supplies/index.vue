@@ -14,5 +14,8 @@
 </script>
 
 <template>
-  <main-page/>
+  <div class="mr-2 ml-2">
+    <v-card-title>Supplies</v-card-title>
+    <main-page/>
+  </div>
 </template>
