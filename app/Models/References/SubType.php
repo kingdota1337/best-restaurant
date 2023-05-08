@@ -2,10 +2,10 @@
 
 namespace App\Models\References;
 
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class SubType extends Model
+class SubType extends BaseModel
 {
     use HasFactory;
 }

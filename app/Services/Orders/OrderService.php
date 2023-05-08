@@ -4,18 +4,12 @@ namespace App\Services\Orders;
 
 use Inertia\Inertia;
 use App\Models\Orders\Order;
+use App\Services\BaseService;
 
-class OrderService
+class OrderService extends BaseService
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(): \Inertia\Response
+    public function __construct()
     {
-        $orders = Order::all();
-        
-        return Inertia::render('Orders/index', [
-            'items' => $orders
-         ]);
-    }
+        parent::__construct(model: new Order, path: 'Orders');
+    }   
 }

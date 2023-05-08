@@ -3,19 +3,13 @@
 namespace App\Services\Supplies;
 
 use Inertia\Inertia;
+use App\Services\BaseService;
 use App\Models\Supplies\Supply;
 
-class SupplyService
+class SupplyService extends BaseService
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(): \Inertia\Response
+    public function __construct()
     {
-        $supplies = Supply::all();
-
-        return Inertia::render('Supplies/index', [
-           'items' => $supplies
-        ]);
+        parent::__construct(model: new Supply, path: 'Supplies');
     }
 }

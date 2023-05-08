@@ -3,19 +3,13 @@
 namespace App\Services\Products;
 
 use Inertia\Inertia;
+use App\Services\BaseService;
 use App\Models\Products\Product;
 
-class ProductService
+class ProductService extends BaseService
 {
-    /**
-    * Display a listing of the resource.
-    */
-    public function index(): \Inertia\Response
+    public function __construct()
     {
-        $products = Product::all();
-        
-        return Inertia::render('Products/index', [
-            'items' => $products,
-        ]);
+        parent::__construct(model: new Product, path: 'Products');
     }
 }

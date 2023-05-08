@@ -13,6 +13,10 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
+// Global components
+import TextField from '@/components/TextField.vue'
+import PrimaryButton from '@/components/PrimaryButton.vue'
+
 const vuetify = createVuetify({
     icons: {
         defaultSet: 'mdi',
@@ -22,12 +26,12 @@ const vuetify = createVuetify({
         }
     },
     components,
-      directives,
+    directives
 })
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
-createInertiaApp({
+const app = createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({ el, App, props, plugin }) {
@@ -35,8 +39,10 @@ createInertiaApp({
             .use(vuetify)
             .use(plugin)
             .use(ZiggyVue, Ziggy)
+            .mixin({ components: { TextField, PrimaryButton } }) // register global components
             .mount(el);
     },
+
     progress: {
         color: '#4B5563',
     },

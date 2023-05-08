@@ -29,9 +29,9 @@
           <td>{{ item.id }}</td>
           <td>{{ item.email }}</td>
           <td>
-            <v-btn class="mr-1" color="yellow" :href="route('supplies.edit', item.id)">Edit</v-btn>
+            <v-btn class="mr-1" color="yellow" :href="route('users.edit', item.id)">Edit</v-btn>
             
-            <v-btn color="red" @click="destroy(route('supplies.destroy', item.id))">Delete</v-btn>
+            <v-btn color="red" @click="destroy(route('users.destroy', item.id))">Delete</v-btn>
           </td>
         </tr>
       </tbody>
@@ -45,3 +45,7 @@ export default {
   mixins: [indexPageMixin]
 }
 </script>
+
+
+
+

@@ -2,10 +2,10 @@
 
 namespace App\Models\Orders;
 
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Order extends BaseModel
 {
     use HasFactory;
 }

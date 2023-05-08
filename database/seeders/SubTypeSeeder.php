@@ -26,7 +26,7 @@ class SubTypeSeeder extends Seeder
         ];
 
         foreach ($data as $item) {
-            SubType::create($item);
+            SubType::firstOrCreate($item);
         }
     }
 }

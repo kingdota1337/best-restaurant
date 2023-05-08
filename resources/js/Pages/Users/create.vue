@@ -1,6 +1,6 @@
 <script setup>
-  import mainPage from './Partials/mainPage.vue'
   import Layout from '@/index.vue'
+	import createPage from './Partials/createPage.vue'
 </script>
 
 <script>
@@ -14,5 +14,5 @@
 </script>
 
 <template>
-  <main-page/>
+  <create-page/>      
 </template>

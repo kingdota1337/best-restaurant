@@ -1,45 +1,47 @@
 <template>
-    <v-col>
-      <v-text-field
-        label="test"
-        variant="solo"
-      />
-  
-      <v-table density="compact">
-        <thead>
-          <tr>
-            <th class="text-left">
-              id
-            </th>
-            <th class="text-left">
-              name
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="item in orders"
-            :key="item.id"
-          >
-            <td>{{ item.id }}</td>
-            <td>{{ item.name }}</td>
-          </tr>
-        </tbody>
-      </v-table>
-    </v-col>
-  </template>
-  
-  <script>
-  
-  export default {
-    data () {
-      return {
-        orders: [],
-      }
-    },
-    created() {
-      this.orders = this.$page['props']['items']
-    }
-  }
-  </script>
-  
+  <v-col>
+    <v-btn
+      color="primary"
+      :href="route('orders.create')"
+    >
+      Create
+    </v-btn>    
+
+    <v-table density="compact">
+      <thead>
+        <tr>
+          <th class="text-left">
+            Id
+          </th>
+          <th class="text-left">
+            Name
+          </th>
+          <th class="text-left">
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="item in items"
+          :key="item.name"
+        >
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>
+            <v-btn class="mr-1" color="yellow" :href="route('orders.edit', item.id)">Edit</v-btn>
+            
+            <v-btn color="red" @click="destroy(route('orders.destroy', item.id))">Delete</v-btn>
+          </td>
+        </tr>
+      </tbody>
+    </v-table>
+  </v-col>
+</template>
+
+<script >
+import { indexPageMixin } from "@/Mixins/indexPage.js";
+export default {
+  mixins: [indexPageMixin]
+}
+</script>

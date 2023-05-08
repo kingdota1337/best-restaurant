@@ -4,15 +4,12 @@ namespace App\Services\Users;
 
 use App\Models\User;
 use Inertia\Inertia;
+use App\Services\BaseService;
 
-class UserService 
+class UserService extends BaseService
 {
-    public function index()
+    public function __construct()
     {
-        $users = User::all();
-
-        return Inertia::render('Users/index', [
-            'items' => $users
-        ]);
+        parent::__construct(model: new User, path: 'Users');
     }
 }
