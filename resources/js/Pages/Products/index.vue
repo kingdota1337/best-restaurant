@@ -9,17 +9,17 @@ import { Head } from '@inertiajs/vue3';
 
 
 <template>
-    <Head title="Foods" />
+    <Head title="Products" />
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Foods</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Products</h2>
         </template>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900">Foods will be here!</div>
+                    <div class="p-6 text-gray-900">Products will be here!</div>
                     <main-page />
                 </div>
             </div>

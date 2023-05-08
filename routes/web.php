@@ -4,7 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Foods\FoodController;
+use App\Http\Controllers\Products\ProductController;
 use App\Http\Controllers\Users\UserController;
 use App\Http\Controllers\Orders\OrderController;
 use App\Http\Controllers\Supplies\SupplyController;
@@ -33,20 +33,20 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// users
+// Users
 Route::resource('users', UserController::class);
 Route::controller(UserController::class)->group(function () {
     // Route::get('/users/{id}', 'show');
     // Route::post('/orders', 'store');
 });
 
-// orders
+// Orders
 Route::resource('orders', OrderController::class);
 
-// foods
-Route::resource('foods', FoodController::class);
+// Products
+Route::resource('products', ProductController::class);
 
-// supplies
+// Supplies
 Route::resource('supplies', SupplyController::class);
 
 

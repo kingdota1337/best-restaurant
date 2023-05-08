@@ -4,24 +4,16 @@ namespace App\Http\Controllers\Supplies;
 
 use Illuminate\Http\Request;
 use App\Models\Supplies\Supply;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
 use App\Services\Supplies\SupplyService as Service;
 
-class SupplyController extends Controller
+class SupplyController extends BaseController
 {
     protected $service;
 
     public function __construct(Service $service)
     {
-        $this->service = $service;
-    }
-
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(): \Inertia\Response
-    {
-        return $this->service->index();
+        parent::__construct($service);
     }
 
     /**
@@ -36,14 +28,6 @@ class SupplyController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Supply $supply)
     {
         //
     }

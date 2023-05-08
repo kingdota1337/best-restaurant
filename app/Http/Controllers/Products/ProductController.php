@@ -1,28 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Foods;
+namespace App\Http\Controllers\Products;
 
-use Inertia\Inertia;
-use App\Models\Foods\Food;
+use App\Models\Products\Product;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Services\Foods\FoodService as Service;
+use App\Http\Controllers\BaseController;
+use App\Services\Products\ProductService as Service;
 
-class FoodController extends Controller
+class ProductController extends BaseController
 {
     protected $service;
 
     public function __construct(Service $service)
     {
-        $this->service = $service;
-    }
-
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(): \Inertia\Response
-    {
-        return $this->service->index();
+        parent::__construct($service);
+        // $this->service = $service;
     }
 
     /**
@@ -42,17 +34,9 @@ class FoodController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Food $food)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Food $food)
+    public function edit(Product $product)
     {
         //
     }
@@ -60,7 +44,7 @@ class FoodController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Food $food)
+    public function update(Request $request, Product $product)
     {
         //
     }
@@ -68,7 +52,7 @@ class FoodController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Food $food)
+    public function destroy(Product $products)
     {
         //
     }

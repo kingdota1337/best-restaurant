@@ -4,24 +4,16 @@ namespace App\Http\Controllers\Orders;
 
 use App\Models\Orders\Order;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
 use App\Services\Orders\OrderService as Service;
 
-class OrderController extends Controller
+class OrderController extends BaseController
 {
     protected $service;
 
     public function __construct(Service $service)
     {
-        $this->service = $service;
-    }
-
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(): \Inertia\Response
-    {
-        return $this->service->index();
+        parent::__construct($service);
     }
 
     /**
@@ -39,15 +31,7 @@ class OrderController extends Controller
     {
         //
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
