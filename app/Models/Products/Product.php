@@ -10,6 +10,10 @@ class Product extends BaseModel
 {
     use HasFactory;
 
+    const JUICE = 1;
+    const LEMONADE = 2;
+    const WINE = 3;
+
     protected $fillable = [
         'name',
         'type_id',

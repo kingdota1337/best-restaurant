@@ -25,6 +25,17 @@ class ProductService extends BaseService
 
     public function predictSubtype(array $request)
     {
+        $color = round((float)$request['color']['a'] * 10, 2);
+        $gasification = round((float)$request['gasification'] / 10, 2);
+        $sugar = (float)$request['sugar'];
+        $calories = (float)$request['calories'];
+
+        $pyscript = 'E:\\OSPanel\\domains\\tsh\\app\\Services\\Products\\neron.py'; 
+        $python = 'F:\\python\python.exe';
+        $result = exec("$python $pyscript $sugar $calories $color $gasification");
+ 
+        dd($result);
+
         $result = 1;
         return response()->json(['sub_type_id' => $result]);
     }
