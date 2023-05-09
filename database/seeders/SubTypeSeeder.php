@@ -15,10 +15,10 @@ class SubTypeSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'juice',
+                'name' => 'lemonade', 
             ],
             [
-                'name' => 'lemonade', 
+                'name' => 'juice',
             ],
             [
                 'name' => 'wine', 
