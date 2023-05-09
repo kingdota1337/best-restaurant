@@ -29,6 +29,7 @@ class StoreRequest extends FormRequest
             'surname' => 'required|string|max:125',
             'email' => 'required|string|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Password::defaults()],
+            'role_id' => 'required|integer|exists:roles,id'
         ];
     }
 }

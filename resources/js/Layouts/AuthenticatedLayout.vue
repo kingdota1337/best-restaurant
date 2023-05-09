@@ -12,7 +12,7 @@ const showingNavigationDropdown = ref(false);
 
 <template>
     <div>
-        <div class="min-h-screen bg-gray-100">
+        <div class="bg-dots-darker">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,19 +29,16 @@ const showingNavigationDropdown = ref(false);
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
-                                </NavLink>
-                                <NavLink :href="route('users.index')" :active="route().current('users.index')">
+                                <NavLink v-if="$page['props']['auth']['role']['name'] === 'Admin'" :href="route('users.index')" :active="route().current('users.index')">
                                     Users
                                 </NavLink>
-                                <NavLink :href="route('products.index')" :active="route().current('products.index')">
+                                <NavLink v-if="$page['props']['auth']['role']['name'] === 'Admin' || $page['props']['auth']['role']['name'] === 'Supplier'" :href="route('products.index')" :active="route().current('products.index')">
                                     Products
                                 </NavLink>
-                                <NavLink :href="route('orders.index')" :active="route().current('orders.index')">
+                                <NavLink v-if="$page['props']['auth']['role']['name'] === 'Admin' || $page['props']['auth']['role']['name'] === 'Cook'" :href="route('orders.index')" :active="route().current('orders.index')">
                                     Orders
                                 </NavLink>
-                                <NavLink :href="route('supplies.index')" :active="route().current('supplies.index')">
+                                <NavLink v-if="$page['props']['auth']['role']['name'] === 'Admin' || $page['props']['auth']['role']['name'] === 'Supplier'" :href="route('supplies.index')" :active="route().current('supplies.index')">
                                     Supplies
                                 </NavLink>
                             </div>
@@ -147,18 +144,30 @@ const showingNavigationDropdown = ref(false);
                     </div>
                 </div>
             </nav>
+            
 
             <!-- Page Heading -->
-            <header class="bg-white shadow" v-if="$slots.header">
+            <header class="bg-white shadow" v-if="$slots.header" >
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <slot name="header" />
                 </div>
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main >
                 <slot />
             </main>
         </div>
     </div>
 </template>
+
+<style>
+.bg-dots-darker {
+    background-image: url('../../../public/background.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+</style>

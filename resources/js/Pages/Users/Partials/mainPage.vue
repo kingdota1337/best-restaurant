@@ -17,6 +17,12 @@
             Email
           </th>
           <th class="text-left">
+            First Name
+          </th>
+          <th class="text-left">
+            Surname
+          </th>
+          <th class="text-left">
             Actions
           </th>
         </tr>
@@ -28,6 +34,8 @@
         >
           <td>{{ item.id }}</td>
           <td>{{ item.email }}</td>
+          <td>{{ item.first_name }}</td>
+          <td>{{ item.surname }}</td>
           <td>
             <v-btn class="mr-1" color="yellow" :href="route('users.edit', item.id)">Edit</v-btn>
             

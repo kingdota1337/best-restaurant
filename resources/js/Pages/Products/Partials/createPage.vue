@@ -111,13 +111,13 @@ export default {
 		return {
 			form: useForm({
 				name: null,
-        type_id: null,
-        sub_type_id: null,
-        sugar: null,
-        calories: null,
-        color: null,
-        multiplicity: null,
-        gasification: null
+				type_id: null,
+				sub_type_id: null,
+				sugar: null,
+				calories: null,
+				color: null,
+				multiplicity: null,
+				gasification: null
 			}),
 			selectsData: {
 				types:[],

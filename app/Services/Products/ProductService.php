@@ -34,9 +34,6 @@ class ProductService extends BaseService
         $python = 'F:\\python\python.exe';
         $result = exec("$python $pyscript $sugar $calories $color $gasification");
  
-        dd($result);
-
-        $result = 1;
-        return response()->json(['sub_type_id' => $result]);
+        return response()->json(['sub_type_id' => (int)$result]);
     }
 }
